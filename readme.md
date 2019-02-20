@@ -1,4 +1,4 @@
-# validi18n [![codecov](https://codecov.io/gh/rodrigobdz/validi18n/badge.svg?branch=master)](https://codecov.io/gh/rodrigobdz/validi18n?branch=master)
+# validi18n [![Build Status](https://travis-ci.com/rodrigobdz/validi18n.svg?branch=master)](https://travis-ci.com/rodrigobdz/validi18n) [![codecov](https://codecov.io/gh/rodrigobdz/validi18n/badge.svg?branch=master)](https://codecov.io/gh/rodrigobdz/validi18n?branch=master)
 
 > Ensure consistent keys across i18n translations
 
@@ -13,52 +13,23 @@ $ npm install validi18n
 ```js
 const validi18n = require("validi18n");
 
-validi18n("unicorns");
-//=> 'unicorns & rainbows'
+validi18n({ en: { save: "Save" }, de: { save: "Speichern" } });
+//=> true
+
+validi18n({ en: { save: "Save" }, de: {} });
+//console error => { en: ['save'], de: [] }
+//=> false
 ```
 
 ## API
 
-### validi18n(input, [options])
+### validi18n(translations)
 
-#### input
-
-Type: `string`
-
-Lorem ipsum.
-
-#### options
+#### translations
 
 Type: `Object`
 
-##### foo
-
-Type: `boolean`<br>
-Default: `false`
-
-Lorem ipsum.
-
-## CLI
-
-```sh
-$ npm install --global validi18n
-```
-
-```sh
-$ validi18n --help
-
-  Usage
-    validi18n [input]
-
-  Options
-    --foo  Lorem ipsum [Default: false]
-
-  Examples
-    $ validi18n
-    unicorns & rainbows
-    $ validi18n ponies
-    ponies & rainbows
-```
+Object with translations for each language supported.
 
 ## Related
 
