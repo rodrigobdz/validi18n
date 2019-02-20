@@ -23,9 +23,15 @@
 	"keywords": [
 		"cli-app",
 		"cli",
-		""
+		"validate",
+		"i18n",
+		"json",
+		"object-keys",
+		"test",
+		"consistent"
 	],
 	"dependencies": {
+		"deep-keys": "^0.5.0",
 		"meow": "^5.0.0"
 	},
 	"devDependencies": {

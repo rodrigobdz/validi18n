@@ -1,24 +1,21 @@
-# validi18n [![Build Status](https://travis-ci.com/rodrigobdz/validi18n.svg?branch=master)](https://travis-ci.com/rodrigobdz/validi18n) [![codecov](https://codecov.io/gh/rodrigobdz/validi18n/badge.svg?branch=master)](https://codecov.io/gh/rodrigobdz/validi18n?branch=master)
+# validi18n [![codecov](https://codecov.io/gh/rodrigobdz/validi18n/badge.svg?branch=master)](https://codecov.io/gh/rodrigobdz/validi18n?branch=master)
 
-> Compare keys in i18n translations
-
+> Ensure consistent keys across i18n translations
 
 ## Install
 
-```
+```sh
 $ npm install validi18n
 ```
-
 
 ## Usage
 
 ```js
-const validi18n = require('validi18n');
+const validi18n = require("validi18n");
 
-validi18n('unicorns');
+validi18n("unicorns");
 //=> 'unicorns & rainbows'
 ```
-
 
 ## API
 
@@ -41,14 +38,13 @@ Default: `false`
 
 Lorem ipsum.
 
-
 ## CLI
 
-```
+```sh
 $ npm install --global validi18n
 ```
 
-```
+```sh
 $ validi18n --help
 
   Usage
@@ -64,7 +60,10 @@ $ validi18n --help
     ponies & rainbows
 ```
 
+## Related
+
+- [deep-keys](https://github.com/a8m/deep-keys) - Helper for comparison of i18n objects
 
 ## License
 
-MIT © [Rodrigo Bermudez Schettino](http://rodrigobdz.github.io)
+[MIT](license) © [Rodrigo Bermudez Schettino](http://rodrigobdz.github.io)
