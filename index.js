@@ -10,6 +10,10 @@ const NO_DIFF = null;
  * @returns {Array<String, Object>} Locale and translations
  */
 function getTranslations(o) {
+	if (typeof o !== 'object') {
+		throw new TypeError(`Expected an object, got ${typeof o}`);
+	}
+
 	const locale = Object.keys(o)[0];
 	return [locale, o[locale]];
 }
@@ -62,16 +66,32 @@ function diffs(...objects) {
 }
 
 /**
- * Validates that no translations are missing.
- * @param {Array<Object>} translations Array of translations for each language
- * supported
- * @returns {boolean} true if all translations contain the same keys
+ * Transforms container of translations from object to array.
+ * @param {Object} translations Object with translations for each language
+ * @returns {Array<Object>} Array of translations ordered by language
+ * Example: [ { en: { form: 'Form' } }, { de: { form: 'Form' } } ]
  */
-function validi18n(translations) {
+function formatTranslations(translations) {
 	const formattedTranslations = [];
 	Object.keys(translations).forEach(key => {
 		formattedTranslations.push({[key]: translations[key]});
 	});
+	return formattedTranslations;
+}
+
+/**
+ * Validates that no translations are missing.
+ * @param {Object} translations Object with translations for each language
+ * supported
+ * Example: {en: {save: 'Save'}, de: {save: 'Speichern'}}
+ * @returns {boolean} true if all translations contain the same keys
+ */
+function validi18n(translations) {
+	if (typeof translations !== 'object') {
+		throw new TypeError(`Expected an object, got ${typeof translations}`);
+	}
+
+	const formattedTranslations = formatTranslations(translations);
 
 	const missingTranslations = diffs(...formattedTranslations);
 	const ret = JSON.stringify(missingTranslations) === JSON.stringify({});
@@ -82,7 +102,8 @@ function validi18n(translations) {
 	return ret;
 }
 
+module.exports = validi18n;
 module.exports.diffs = diffs;
 module.exports.diff = diff;
+module.exports.formatTranslations = formatTranslations;
 module.exports.getTranslations = getTranslations;
-module.exports = validi18n;

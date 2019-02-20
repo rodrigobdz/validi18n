@@ -1,5 +1,4 @@
 import test from 'ava';
-// Import sinon from 'sinon';
 // Translations
 import sameKeys from './test/helpers/same-keys';
 import differentKeys from './test/helpers/different-keys';
@@ -12,6 +11,35 @@ const I18n = {
 	}
 };
 
+const invalidI18nDiff = {a: {aa: 1}, b: {bb: 2}};
+const invalidI18nSame = {a: {aa: 1}, b: {aa: 2}};
+
+test('argument type', t => {
+	const err = t.throws(() => {
+		validi18n(123);
+	}, TypeError);
+	t.is(err.message, 'Expected an object, got number');
+});
+
+test('dummy object with same keys', t => {
+	t.true(validi18n(invalidI18nSame));
+});
+
+test('dummy object with diff keys', t => {
+	t.false(validi18n(invalidI18nDiff));
+});
+
+test('argument type in validi18n.diff', t => {
+	const err = t.throws(() => {
+		validi18n.diff(invalidI18nDiff);
+	}, TypeError);
+	t.is(err.message, 'Expected an object, got undefined');
+});
+
+test('empty object', t => {
+	t.true(validi18n({}));
+});
+
 test('same translations', t => {
 	t.true(validi18n(I18n.translations.samesame));
 });
@@ -20,14 +48,17 @@ test('different translations keys in translations', t => {
 	t.false(validi18n(I18n.translations.different));
 });
 
-// Test('validi18n with different translations', t => {
-// 	// Spy on console.error
-// 	t.context.error = console.error;
-// 	console.error = sinon.spy();
-
-// 	t.false(validi18n(I18n.translations.different));
-// 	t.true(console.error.calledOnce);
-
-// 	// Restore console.error to original value
-// 	console.error = t.context.error;
-// });
+test('differences', t => {
+	t.deepEqual(
+		validi18n.diffs(...validi18n.formatTranslations(I18n.translations)),
+		{
+			samesame: [
+				'de.form.validation.tooShort',
+				'de.form.validation.tooLong',
+				'de.form.validation.required',
+				'de.form.validation.notValid'
+			],
+			different: []
+		}
+	);
+});
