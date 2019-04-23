@@ -31,10 +31,12 @@ Type: `Object`
 
 Object with translations for each language supported.
 
-## Related
+## Credits
 
 - [deep-keys](https://github.com/a8m/deep-keys) - Helper for comparison of i18n objects
 
+- [generator-lnm](https://github.com/rodrigobdz/generator-lnm) - Awesome node module generator
+
 ## License
 
-[MIT](license) © [Rodrigo Bermudez Schettino](http://rodrigobdz.github.io)
+[MIT](license) © [Rodrigo Bermudez Schettino](https://rodrigobdz.github.io)

@@ -16,11 +16,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2019-04-23
+
+## Added
+
+- Add contribution guidelines, code of conduct, issue and PR templates to comply with [recommended community standards](https://opensource.guide).
+This is visible in the repo's [community profile](https://github.com/rodrigobdz/validi18n/community).
+
+### Changed
+
+- Update package dependencies.
+- Improve readability of license with linebreaks.
+
 ## [1.0.0] - 2019-02-20
 
 ### Added
 
 - Ensure consistent keys across i18n translations.
 
-[unreleased]: https://github.com/rodrigobdz/validi18n/compare/v1.0.0...HEAD
+[unreleased]: https://github.com/rodrigobdz/validi18n/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/rodrigobdz/validi18n/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/rodrigobdz/validi18n/compare/b0d6f629a61de69ce6c3628bd31031ba3742689b...v1.0.0
