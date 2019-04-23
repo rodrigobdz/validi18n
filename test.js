@@ -1,7 +1,7 @@
 import test from 'ava';
 // Translations
-import sameKeys from './test/helpers/same-keys';
-import differentKeys from './test/helpers/different-keys';
+import sameKeys from './fixtures/same-keys';
+import differentKeys from './fixtures/different-keys';
 import validi18n from '.';
 
 const I18n = {

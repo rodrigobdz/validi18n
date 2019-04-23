@@ -99,6 +99,7 @@ function validi18n(translations) {
 	if (!ret) {
 		console.error(missingTranslations);
 	}
+
 	return ret;
 }
 
