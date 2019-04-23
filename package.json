@@ -1,6 +1,6 @@
 {
 	"name": "validi18n",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Ensure consistent keys across i18n translations",
 	"license": "MIT",
 	"repository": "rodrigobdz/validi18n",
